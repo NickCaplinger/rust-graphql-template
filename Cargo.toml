@@ -1,0 +1,9 @@
+[workspace]
+# This field specifies all of the crates that will be included in this manifest.
+# By using a wildcard (*), we specify that we want all crates found in the specified folder
+# to be included in our workspace.
+members = ["crates/*"]
+# When using virtual workspaces, we must specify the resolver version manually.
+# See the following link for more information:
+# https://doc.rust-lang.org/cargo/reference/resolver.html#resolver-versions
+resolver = "2"

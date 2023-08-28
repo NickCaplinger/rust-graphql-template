@@ -1,0 +1,23 @@
+[package]
+name = "rust-graphql-template-gateway"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-cors = "0.6.4"
+actix-web = "4.3.1"
+async-graphql = { version = "6.0.1", features = ["chrono"] }
+async-graphql-actix-web = "6.0.3"
+chrono = "0.4.26"
+const_format = "0.2.31"
+rust-graphql-template-core = { path = "../rust-graphql-template-core" }
+dotenvy = "0.15.7"
+reqwest = { version = "0.11.18", features = ["json"] }
+serde = "1.0.183"
+serde_json = "1.0.105"
+thiserror = "1.0.47"
+tracing = "0.1.37"
+tracing-actix-web = "0.7.6"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
