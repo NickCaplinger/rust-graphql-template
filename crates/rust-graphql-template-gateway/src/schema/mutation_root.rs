@@ -13,7 +13,7 @@ impl MutationRoot {
 
         let id = "definitely_real_id";
 
-        info!("Created a doodad with ID: {id}");
+        info!(id = id, "Created a doodad with specified ID.");
 
         // We must call `into` on string types to cast the string into an ID.
         // GraphQL IDs can be either strings or integer values.

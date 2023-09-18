@@ -43,7 +43,7 @@ async fn index(
     };
 
     let inner_req = inner_req.data(auth_context);
-    info!("Handling GraphQL query: {}", inner_req.query);
+    info!(query = inner_req.query, "Handling GraphQL query.");
     schema.execute(inner_req).await.into()
 }
 
