@@ -24,22 +24,25 @@ If you are new to using GraphQL and Rust together, you might want to read [the d
 
 ## Workspace and Crates
 
-Unlike typical Rust projects, we use a virtual workspace to use two crates instead of one: core and gateway.
-
-Why do this?
+Unlike typical Rust projects, we use a virtual workspace to use two crates instead of one: core and gateway. Why do this?
 
 Firstly, this promotes a good separate of concerns.
 
-The core library should implement all of your application logic, with as much abstraction and encapsulation as you'd like.
+- The core library should implement all of your application logic, with as much abstraction and encapsulation as you'd like.
+- The gateway crate, on the other hand, should only be concerned about transforming data pulled from the core library and presenting it to the client.
 
-The gateway crate, on the other hand, should only be concerned about transforming data pulled from the core library and presenting it to the client.
-
-By doing this, you make it very easy to expose alternate APIs, should you choose to implement part or all of your API via REST or gRPC.
+By doing this, you make it very easy to expose alternate APIs, should you choose to implement part or all of your API via a RESTful or gRPC interface.
 You also make it easy to create tools and jobs that cleanly depend on your application logic without needing to pull in your GraphQL code.
 
 ## Database Interaction
 
-For the sake of simplicity, this repository doesn't implement database interaction. When you decide to tackle this, you should look into the [diesel](https://crates.io/crates/diesel) crate. If you want to work with diesel using async, look into [diesel-async](https://crates.io/crates/diesel-async).
+For the sake of simplicity, this repository doesn't implement database interaction. When you decide to tackle this, I would recommend taking a look at the [sqlx](https://crates.io/crates/sqlx) and [diesel](https://crates.io/crates/diesel) crates.
+
+sqlx is database agnostic, provides compile-time SQL validation, and handles things like connection pooling for you.
+
+diesel is an [ORM](https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping) and therefore is more opinionated. If you want to work with diesel using async, look into [diesel-async](https://crates.io/crates/diesel-async).
+
+Both crates have tools to help you manage and execute database migrations.
 
 ## Authentication
 
@@ -47,4 +50,4 @@ TODO
 
 ## Authorization
 
-TODO
+Authorization - determining if the source of the request is _authorized_ to access the requested resource - is out of scope of this template at the present time.
