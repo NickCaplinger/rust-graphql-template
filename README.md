@@ -2,7 +2,7 @@
 
 The goal of this repository is to provide a template project that is both accessible to newcomers and useful for those experienced with Rust and GraphQL.
 
-We use [actix-web](https://crates.io/crates/actix-web) as our web server but just about any web server crate is fine to use; we don't depend on any features specific to actix-web.
+We use [actix-web](https://crates.io/crates/actix-web) as our web server but just about any web server crate is fine to use; we don't depend on any features specific to actix-web. [axum](https://crates.io/crates/axum) is a fantastic alternative.
 
 ## Rust?
 
